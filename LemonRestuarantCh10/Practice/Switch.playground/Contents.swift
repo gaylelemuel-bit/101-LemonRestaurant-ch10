@@ -110,3 +110,30 @@ case false:
 
 // Assignment
 
+let temperature = 101
+
+switch temperature {
+case 0...59:
+    print("Cold!")
+case 60...79:
+    print("Warm")
+case 80...100:
+    print("Hot!")
+default:
+    print("invalid temperature")
+}
+
+
+print("/n---- Assignment 1-----")
+
+let day = "Friday"
+
+switch day {
+case "Saturday", "Sunday":
+    print("Weekend!")
+case "Monday", "Tuesday", "Wednesday", "Thursday", "Friday":
+    print("Weekday")
+default:
+    print("Invalid day!")
+}
+

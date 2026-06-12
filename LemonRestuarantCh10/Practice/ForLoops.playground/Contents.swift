@@ -84,6 +84,15 @@ for number in stride(from:10, through: 0, by:-2){
  🌲🌲🌲🌲🌲
 */
 
+
+print("/n-- Mini-Challenge 1--")
+for countdown in stride(from:15, through:0, by:-3){
+    print(countdown)
+    
+}
+
+
+print("/n-- Mini-Challenge 2--")
 var tree = ""
 
 for _ in 1...5{
