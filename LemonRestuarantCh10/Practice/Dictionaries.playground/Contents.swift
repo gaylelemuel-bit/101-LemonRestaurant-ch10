@@ -177,3 +177,70 @@ ingredients["Tomato"] = 88
 ingredients["Cheese"] = 0
 
 print(ingredients)
+
+
+print("\n-- Dictionary with array values")
+let menuCategories = [
+    "Drink": ["Coconut water", "Juice", "Tea"],
+    "Appetizers": ["Wings", "Salad", "BreadSticks"],
+    "Main": ["Spaghetti", "Pizza", "Pasta Bolognese"],
+    "Dessert": ["CarrotCake", "Brownies", "Ice cream"]
+]
+
+print(menuCategories)
+print("\n-- looping thrugh menuCategories --")
+for (category, items) in menuCategories {
+    print(category)
+    for item in items {
+        print("- \(item)")
+    }
+}
+
+print("\n-- looping through menuCategories (forEach) ---")
+menuCategories.forEach { (category, items) in
+    print("\n \(category)")
+    items.forEach{ items in
+        print("- \(items)")
+            
+        }
+}
+
+/*
+ --- Mini Challenge "School and topics ----
+ 1. Create a dictionary called "schoolSubjects"
+   - A subject is the key, and the value is an array of topics
+ 
+ 2. Add at least 3 subjects
+   - Example: Math, Science, Progamming, Art...
+ 
+ 3. Each subject must have at least 3 Topics
+ - Examples:
+ Math > Algebra, Geometry, Fractions
+ Programming> Loops, Arrays,Dictionaries
+ 
+ 4 Render all the subjects with thier topics
+ 
+ 5. Render your favorite subject with its topics
+ */
+
+print("\n--- Mini Challenge School and Topics ---")
+let schoolSubjects = [
+    "Math":["Fractions","Geometry","Algebra"],
+    "History":["World History","Geography","History of Art"],
+    "Art":["Drawing","Painting","Sculpture"]
+]
+print(schoolSubjects)
+for (subject,topic) in schoolSubjects {
+    print(subject)
+    for topics in topic {
+        print("> \(topics)")
+    }
+}
+
+print("\n-- forEach--")
+schoolSubjects.forEach { (subject, topics) in
+    print(subject)
+    topics.forEach{ topic in
+        print("- \(topic)")
+    }
+}
