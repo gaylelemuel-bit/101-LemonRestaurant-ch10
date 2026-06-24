@@ -19,29 +19,31 @@ struct DishDetialsView: View {
     let dish: Dish
     
     var body: some View {
-        VStack(spacing: 16) {
-            Image(dish.imageName)
-                .resizable()
-                .scaledToFit()
-                .frame(height: 300)
-            
-            VStack(alignment: .leading, spacing: 4) {
-                Text(dish.name)
-                    .font(Font.title.weight(.bold))
-                Text(dish.category)
-                    .foregroundStyle(Color.secondary)
-                Text("\(dish.price)")
-                    .foregroundStyle(.green)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(.horizontal)
-            
-            
-            Text(dish.description)
-                .multilineTextAlignment(.leading)
+        ScrollView{
+            VStack(spacing: 16) {
+                Image(dish.imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 400, height: 300)
+                
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(dish.name)
+                        .font(Font.title.weight(.bold))
+                    Text(dish.category)
+                        .foregroundStyle(Color.secondary)
+                    Text("$\(dish.price , specifier: "%.2f")")
+                        .foregroundStyle(.green)
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal)
-            
-            Spacer()
+                
+                
+                Text(dish.description)
+                    .multilineTextAlignment(.leading)
+                    .padding(.horizontal)
+                
+                Spacer()
+            }
         }
     }
 }

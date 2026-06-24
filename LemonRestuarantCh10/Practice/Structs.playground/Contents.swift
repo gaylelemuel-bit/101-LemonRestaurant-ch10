@@ -115,4 +115,90 @@ print(swiftBook.title)
 print(swiftBook.author)
 print(swiftBook.pages)
 
+/// Session #2
+print("\n-- Movie Struct --")
+
+struct Movie {
+    var title: String
+    var genre: String? // means optional
+    var director: String
+    var year: Int
+    
+    func printSummary() {
+        print("\(title) \(year) was directed by \(director)")
+    }
+}
+
+//create instances
+let interstellar = Movie(
+    title: "Interstellar",
+    genre: "Adventure",
+    director: "Christopher Nolan",
+    year: 2014
+)
+
+let darkKnight = Movie(
+    title: "The Dark Knight",
+    genre: "Action",
+    director: "Christopher Nolan",
+    year: 2008
+)
+let toyStory = Movie(
+    title: "Toy Story",
+    genre: "Animation",
+    director: "John Lasseter",
+    year: 1995
+)
+let passionOfChrist = Movie(
+    title: "Passion of Christ",
+    genre: "Drama",
+    director: "Roman Polanski",
+    year: 1994
+)
+
+let trainingDay = Movie(
+    title: "Training Day",
+    genre: "Drama",
+    director: "Lana Wachowski, Lilly Wachowski",
+    year: 2010
+)
+let brotherBear = Movie(
+    title: "Brother Bear",
+    genre: "Animation",
+    director: "John Lasseter",
+    year: 1991
+)
+
+interstellar.printSummary()
+darkKnight.printSummary()
+toyStory.printSummary()
+
+
+// array of structs
+let movies = [interstellar, darkKnight, toyStory, passionOfChrist, trainingDay, brotherBear]
+
+print("\n-- Loop through movies array --")
+
+for movie in movies {
+    print("\(movie.title), -\(movie.year), directed by \(movie.director)")
+}
+
+/*
+ Mini Challenge
+ 
+ 1. add the property genre to the movie struct
+ 2. create at least 3 more and add them to the array
+ 3. loop through the array and print only the movies released after 2000,
+    and dont forget to aslo show the genre property
+ 
+ */
+
+print("\n Mini challenge Movies ---")
+for movie in movies {
+    if movie.year > 2000 {
+        print("\(movie.title),\(movie.genre), -\(movie.year)")
+    }else {
+        print("\(movie.title),\(movie.genre), - \(movie.year)")
+    }
+}
 
