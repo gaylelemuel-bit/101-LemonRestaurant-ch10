@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DishListView: View {
     
-    var dishes:[Dish] = [
+    @State var dishes:[Dish] = [
         Dish(name: "Pancake",
              category: "Breakfast",
              price: 8.99,
@@ -104,13 +104,18 @@ struct DishListView: View {
              description: "A smooth, medium-bodied drip coffee brewed fresh every twenty minutes. Delivers a perfectly balanced cup with bright notes of citrus and a sweet milk-chocolate finish",
              imageName: "coffee"
             ),
-
-
-        
-             
-        
     ]
+
     @State private var selectedCategory:String = "All"
+    @State private var showAddDish = false
+    @State private var newDish = Dish(
+        name: "",
+        category: "",
+        price: 0,
+        description: "",
+        imageName: ""
+    )
+    
     var filteredDishes: [Dish]{
         if selectedCategory == "All"{
             return dishes
@@ -122,6 +127,17 @@ struct DishListView: View {
     var body: some View {
         NavigationView {
             VStack{
+                HStack{
+                    Spacer()
+                        Button(action:{
+                            showAddDish = true
+                        }){
+                            Image(systemName: "plus.circle.fill")
+                            Text("Add Dish")
+                        }
+                 }
+                .padding(.horizontal)
+                
                 Picker("Category", selection: $selectedCategory) {
                     Text("All").tag("All")
                     Text("Breakfast").tag("Breakfast")
@@ -154,6 +170,9 @@ struct DishListView: View {
                 }
             }
             .navigationTitle("Menu")
+        }
+        .sheet(isPresented: $showAddDish){
+            AddDishViewForm(newDish: $newDish, dishes: $dishes)
         }
     }
 }
